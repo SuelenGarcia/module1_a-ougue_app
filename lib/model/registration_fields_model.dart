@@ -60,7 +60,7 @@ class _RegistrationFieldsModelState extends State<RegistrationFieldsModel> {
 
   @override
   Widget build(BuildContext context) {
-    final Color color = const Color.fromARGB(255, 0, 0, 0);
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Cadastrar nova carne')),
       body: Padding(
@@ -89,22 +89,22 @@ class _RegistrationFieldsModelState extends State<RegistrationFieldsModel> {
                 onPressed: () => _pickDate(isArrival: true),
                 child: Text(arrivalDate == null
                     ? 'Selecione a data de chegada:'
-                    : 'Chegou em: ${arrivalDate!.day}/${arrivalDate!.month}/${arrivalDate!.year}', style: TextStyle(color: color, fontSize: 14),),
+                    : 'Chegou em: ${arrivalDate!.day}/${arrivalDate!.month}/${arrivalDate!.year}', style: TextStyle(color: theme.colorScheme.onSurface, fontSize: 14),),
               ),
               TextButton(
                 onPressed: () => _pickDate(isArrival: false),
                 child: Text(expiryDate == null
                     ? 'Selecione a data de validade:'
-                    : 'Vence em: ${expiryDate!.day}/${expiryDate!.month}/${expiryDate!.year}', style: TextStyle(color: color, fontSize: 14),),
+                    : 'Vence em: ${expiryDate!.day}/${expiryDate!.month}/${expiryDate!.year}', style: TextStyle(color: theme.colorScheme.onSurface, fontSize: 14),),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _saveMeat,
                 style: ElevatedButton.styleFrom(
-                 backgroundColor: const Color.fromARGB(255, 207, 56, 45),
-                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(14),),),
+                 backgroundColor: theme.primaryColor,
+                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12),),),
                 ),
-                child: const Text('Salvar', style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500,),),
+                child: Text('Salvar', style: TextStyle(color: theme.colorScheme.surface, fontSize: 14, fontWeight: FontWeight.w500,),),
               )
             ],
           ),

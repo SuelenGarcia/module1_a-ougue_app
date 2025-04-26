@@ -11,10 +11,8 @@ class ListViewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final meatController = Provider.of<MeatController>(context);
      final meats = meatController.meats;
+     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lista de carnes', style: TextStyle(color: Color.fromARGB(255, 111, 111, 112)),),
-      ),
       body: meats.isEmpty
           ? Center(child: Text("Nenhuma carne foi cadastrada."))
           : ListView.builder(
@@ -24,7 +22,7 @@ class ListViewWidget extends StatelessWidget {
               },
             ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color.fromARGB(255, 207, 56, 45),
+        backgroundColor: theme.primaryColor,
         onPressed: () {
           Navigator.push(
             context,
@@ -34,7 +32,7 @@ class ListViewWidget extends StatelessWidget {
           );
         },
         tooltip: 'Adicione a carne',
-        child: Icon(Icons.add, color: const Color.fromARGB(255, 255, 255, 255),),
+        child: Icon(Icons.add, color: theme.colorScheme.surface,),
       ),
     );
   }

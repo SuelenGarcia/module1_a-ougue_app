@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:modulo1_acougue/home_page.dart';
+import 'package:modulo1_acougue/theme/custom_theme.dart';
+import 'package:modulo1_acougue/widget/login_page_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:modulo1_acougue/controller/meat_controller.dart';
+
 void main() {
   runApp(
     ChangeNotifierProvider(
@@ -18,8 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Açougue Sabor da Morte',
-      home: const HomePage(),
+      home: const LoginPage(),
       debugShowCheckedModeBanner: false,
+      theme: CustomTheme.lightTheme,
     );
   }
 }
